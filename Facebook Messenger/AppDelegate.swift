@@ -20,9 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let layout = UICollectionViewFlowLayout()
-        let friendListControler = FriendListController(collectionViewLayout: layout)
-        window?.rootViewController = UINavigationController(rootViewController: friendListControler)
+//        let layout = UICollectionViewFlowLayout()
+//        let friendListControler = FriendListController(collectionViewLayout: layout)
+//        window?.rootViewController = UINavigationController(rootViewController: friendListControler)
+//        
+        window?.rootViewController = CustomTabBarController()
         
         return true
     }

@@ -23,6 +23,7 @@ class FriendListController: UICollectionViewController, UICollectionViewDelegate
     
     func setupNavigationBar() {
         // TODO: add search controller
+        navigationItem.title = "Recent"
     }
     
     

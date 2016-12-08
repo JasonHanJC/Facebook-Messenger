@@ -18,6 +18,7 @@ extension FriendListController {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         
         if let context = delegate?.persistentContainer.viewContext {
+            
             let mark = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             mark.name = "Mark Zuckerberg"
             mark.profileImageName = "zuckprofile"
@@ -61,6 +62,23 @@ extension FriendListController {
             donaldMessage1.friend = donald
             donaldMessage1.text = "You are fired!"
             
+            let gandhi = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+            gandhi.name = "Mahatma Gandhi"
+            gandhi.profileImageName = "gandhi"
+            
+            let gandhiMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            gandhiMessage1.date = Date().addingTimeInterval(-60 * 55 * 60) as NSDate?
+            gandhiMessage1.friend = gandhi
+            gandhiMessage1.text = "I love peace!"
+            
+            let hillary = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+            hillary.name = "Hillary Clinton"
+            hillary.profileImageName = "hillary_profile"
+            
+            let hillaryMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            hillaryMessage1.date = Date().addingTimeInterval(-60 * 5555 * 60) as NSDate?
+            hillaryMessage1.friend = hillary
+            hillaryMessage1.text = "Please vote for me"
             // save the objectsc
             do {
                 try(context.save())
@@ -83,7 +101,6 @@ extension FriendListController {
                 messages = [Message]()
                 
                 for friend in friends {
-                    print(friend)
                     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
                     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
                     fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
