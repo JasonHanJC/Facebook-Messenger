@@ -33,9 +33,33 @@ extension FriendListController {
             steve.profileImageName = "steve_profile"
             
             let steveMessage = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            steveMessage.date = Date() as NSDate?
+            steveMessage.date = Date().addingTimeInterval(-4 * 60) as NSDate?
             steveMessage.friend = steve
             steveMessage.text = "Apple creats great products for the world"
+            
+            let steveMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            steveMessage1.date = Date().addingTimeInterval(-3 * 60) as NSDate?
+            steveMessage1.friend = steve
+            steveMessage1.text = "Apple creats great products for the world"
+            
+            let steveMessage2 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            steveMessage2.date = Date().addingTimeInterval(-2 * 60) as NSDate?
+            steveMessage2.friend = steve
+            steveMessage2.text = "Apple creats great products for the world"
+            
+            let steveMessage3 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            steveMessage3.date = Date().addingTimeInterval(-1 * 60) as NSDate?
+            steveMessage3.friend = steve
+            steveMessage3.text = "Apple creats great products for the world"
+            
+            let donald = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+            donald.name = "Donald Trump"
+            donald.profileImageName = "donald_trump_profile"
+            
+            let donaldMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            donaldMessage1.date = Date().addingTimeInterval(-5 * 60) as NSDate?
+            donaldMessage1.friend = donald
+            donaldMessage1.text = "You are fired!"
             
             // save the objectsc
             do {
@@ -43,9 +67,6 @@ extension FriendListController {
             } catch let err {
                 print(err)
             }
-            
-            // messages = [markMessage, steveMessage]
-
         }
         
         loadData()
@@ -56,13 +77,31 @@ extension FriendListController {
         
         if let context = delegate?.persistentContainer.viewContext {
             
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
-            
-            do {
-                messages = try(context.fetch(fetchRequest)) as? [Message]
-            } catch let err {
-                print(err)
+            if let friends = fetchFriends() {
+                
+                // remenber to init the array
+                messages = [Message]()
+                
+                for friend in friends {
+                    print(friend)
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
+                    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                    fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
+                    fetchRequest.fetchLimit = 1
+                    
+                    do {
+                        let fetchedMessages = try(context.fetch(fetchRequest)) as? [Message]
+                        messages?.append(contentsOf: fetchedMessages!)
+                    } catch let err {
+                        print(err)
+                    }
+                }
+                
+                messages = messages?.sorted(by: { (item1, item2) -> Bool in
+                    return item1.date?.compare(item2.date as! Date) == .orderedDescending
+                })
             }
+            
         }
     }
     
@@ -88,5 +127,20 @@ extension FriendListController {
                 print(err)
             }
         }
+    }
+    
+    func fetchFriends() -> [Friend]? {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        
+        if let context = delegate?.persistentContainer.viewContext {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+            do {
+                return try(context.fetch(fetchRequest)) as? [Friend]
+            } catch let err {
+                print(err)
+            }
+        }
+        
+        return nil;
     }
 }
