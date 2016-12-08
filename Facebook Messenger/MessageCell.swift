@@ -8,7 +8,26 @@
 
 import UIKit
 
-class FriendCell: BaseCell {
+class MessageCell: BaseCell {
+    
+    var message: Message? {
+        didSet {
+            nameLabel.text = message?.friend?.name
+            
+            if let profileImageName = message?.friend?.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            }
+            
+            messageLabel.text = message?.text
+            
+            if let date = message?.date {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "h:mm a"
+                
+                timeLabel.text = dateFormatter.string(from: date as Date)
+            }
+        }
+    }
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()

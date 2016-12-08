@@ -21,3 +21,13 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
+
+extension UIColor {
+    static func rgb(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: alpha)
+    }
+}

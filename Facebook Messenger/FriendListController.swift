@@ -11,31 +11,38 @@ import UIKit
 class FriendListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
+    var messages: [Message]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
         setupNavigationBar()
+        setupData()
     }
     
     func setupNavigationBar() {
-        
+        // TODO: add search controller
     }
     
     
     func setupCollectionView() {
         collectionView?.backgroundColor = .white
-        collectionView?.register(FriendCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.alwaysBounceVertical = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if let count = messages?.count {
+            return count
+        }
+        return 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FriendCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
+        
+        cell.message = messages?[indexPath.item]
         
         return cell
     }

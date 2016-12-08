@@ -12,9 +12,10 @@
 		9635BE8A1DF8B36E00361B03 /* Facebook_Messenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE881DF8B36E00361B03 /* Facebook_Messenger.xcdatamodeld */; };
 		9635BE8C1DF8B36E00361B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9635BE8B1DF8B36E00361B03 /* Assets.xcassets */; };
 		9635BE8F1DF8B36E00361B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9635BE8D1DF8B36E00361B03 /* LaunchScreen.storyboard */; };
-		9635BE981DF8B8B100361B03 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE971DF8B8B100361B03 /* FriendCell.swift */; };
+		9635BE981DF8B8B100361B03 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE971DF8B8B100361B03 /* MessageCell.swift */; };
 		9635BE9B1DF8BB4F00361B03 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */; };
 		9635BE9E1DF8EFB000361B03 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE9D1DF8EFB000361B03 /* Extension.swift */; };
+		9635BEA31DF9116300361B03 /* FriendListControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BEA21DF9116300361B03 /* FriendListControllerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +26,10 @@
 		9635BE8B1DF8B36E00361B03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9635BE8E1DF8B36E00361B03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9635BE901DF8B36E00361B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9635BE971DF8B8B100361B03 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		9635BE971DF8B8B100361B03 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		9635BE9D1DF8EFB000361B03 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9635BEA21DF9116300361B03 /* FriendListControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		9635BE801DF8B36E00361B03 /* Facebook Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				9635BE9F1DF90A1800361B03 /* Model */,
 				9635BE9C1DF8EF9300361B03 /* Helper */,
 				9635BE961DF8B87900361B03 /* View */,
 				9635BE811DF8B36E00361B03 /* AppDelegate.swift */,
@@ -75,7 +78,7 @@
 		9635BE961DF8B87900361B03 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9635BE971DF8B8B100361B03 /* FriendCell.swift */,
+				9635BE971DF8B8B100361B03 /* MessageCell.swift */,
 				9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */,
 			);
 			name = View;
@@ -85,8 +88,16 @@
 			isa = PBXGroup;
 			children = (
 				9635BE9D1DF8EFB000361B03 /* Extension.swift */,
+				9635BEA21DF9116300361B03 /* FriendListControllerHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		9635BE9F1DF90A1800361B03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +177,8 @@
 				9635BE821DF8B36E00361B03 /* AppDelegate.swift in Sources */,
 				9635BE9E1DF8EFB000361B03 /* Extension.swift in Sources */,
 				9635BE9B1DF8BB4F00361B03 /* BaseCell.swift in Sources */,
-				9635BE981DF8B8B100361B03 /* FriendCell.swift in Sources */,
+				9635BE981DF8B8B100361B03 /* MessageCell.swift in Sources */,
+				9635BEA31DF9116300361B03 /* FriendListControllerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
