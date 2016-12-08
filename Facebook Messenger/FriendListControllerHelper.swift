@@ -33,15 +33,10 @@ extension FriendListController {
             steve.name = "Steve Jobs"
             steve.profileImageName = "steve_profile"
             
-            let steveMessage = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            steveMessage.date = Date().addingTimeInterval(-4 * 60) as NSDate?
-            steveMessage.friend = steve
-            steveMessage.text = "Apple creats great products for the world"
-            
             let steveMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
             steveMessage1.date = Date().addingTimeInterval(-3 * 60) as NSDate?
             steveMessage1.friend = steve
-            steveMessage1.text = "Apple creats great products for the world"
+            steveMessage1.text = "Apple"
             
             let steveMessage2 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
             steveMessage2.date = Date().addingTimeInterval(-2 * 60) as NSDate?
@@ -51,7 +46,7 @@ extension FriendListController {
             let steveMessage3 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
             steveMessage3.date = Date().addingTimeInterval(-1 * 60) as NSDate?
             steveMessage3.friend = steve
-            steveMessage3.text = "Apple creats great products for the world"
+            steveMessage3.text = "Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world,  Apple creats great products for the world"
             
             let donald = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             donald.name = "Donald Trump"

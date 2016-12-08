@@ -57,33 +57,85 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ChatLogCell
     
-        cell.messageTextView.text = messages?[indexPath.item].text
-    
+        cell.message = messages?[indexPath.item]
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if let messageText = messages?[indexPath.item].text {
+            let size = CGSize(width: 250, height: 1000)
+            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+            let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + 20)
+
+        }
+        
         return CGSize(width: view.frame.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
     }
 
 }
 
 class ChatLogCell: BaseCell {
     
+    var message: Message? {
+        didSet {
+            messageTextView.text = message?.text
+            
+            if let messageText = message?.text {
+                let size = CGSize(width: 250, height: 1000)
+                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+                let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
+                messageTextView.frame = CGRect(x: 42 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                textBubbleView.frame = CGRect(x: 42 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+            }
+            
+            if let profileImageName = message?.friend?.profileImageName {
+            profileImageView.image = UIImage(named: profileImageName)
+            }
+        }
+    }
+    
     let messageTextView: UITextView = {
         let tv = UITextView();
-        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.font = UIFont.systemFont(ofSize: 18)
+        tv.backgroundColor = .clear
         tv.text = "Sample message"
+        tv.isEditable = false
         return tv
+    }()
+    
+    let textBubbleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
+        return imageView
     }()
     
     override func setupViews() {
         super.setupViews()
         
+        addSubview(textBubbleView)
         addSubview(messageTextView)
+        addSubview(profileImageView)
         
-        addConstraintsWithFormat("H:|[v0]|", views: messageTextView)
-        addConstraintsWithFormat("V:|[v0]|", views: messageTextView)
+        addConstraintsWithFormat("H:|-8-[v0(30)]", views: profileImageView)
+        addConstraintsWithFormat("V:[v0(30)]|", views: profileImageView)
         
     }
 }
