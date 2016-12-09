@@ -14,6 +14,8 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     var messages: [Message]?
     
+    let inputsView = MessageInputsView()
+    
     var friend: Friend? {
         didSet {
             navigationItem.title = friend?.name
@@ -26,10 +28,15 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarController?.tabBar.isHidden = true
 
         self.collectionView!.register(ChatLogCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView?.backgroundColor = .white
-
+        
+        view.addSubview(inputsView)
+        view.addConstraintsWithFormat("H:|[v0]|", views: inputsView)
+        view.addConstraintsWithFormat("V:[v0(48)]|", views: inputsView)
     }
 
     override func didReceiveMemoryWarning() {
