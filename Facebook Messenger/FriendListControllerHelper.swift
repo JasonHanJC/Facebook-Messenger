@@ -27,26 +27,39 @@ extension FriendListController {
             markMessage.date = Date() as NSDate?
             markMessage.friend = mark
             markMessage.text = "Hello, my name is Mark. Nice to meet you."
+            markMessage.isSender = false
             
             
             let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             steve.name = "Steve Jobs"
             steve.profileImageName = "steve_profile"
             
-            let steveMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            steveMessage1.date = Date().addingTimeInterval(-3 * 60) as NSDate?
-            steveMessage1.friend = steve
-            steveMessage1.text = "Apple"
+//            for _ in 1...1000 {
+                let steveMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+                steveMessage1.date = Date().addingTimeInterval(-3 * 60) as NSDate?
+                steveMessage1.friend = steve
+                steveMessage1.text = "Apple"
+                steveMessage1.isSender = false
+                
+                let steveMessage2 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+                steveMessage2.date = Date().addingTimeInterval(-2 * 60) as NSDate?
+                steveMessage2.friend = steve
+                steveMessage2.text = "Apple creats great products for the world"
+                steveMessage2.isSender = false
+                
+                let steveMessage3 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+                steveMessage3.date = Date().addingTimeInterval(-1 * 60) as NSDate?
+                steveMessage3.friend = steve
+                steveMessage3.text = "Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world,  Apple creats great products for the world"
+                steveMessage3.isSender = false
+                
+                let steveMessage4 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+                steveMessage4.date = Date().addingTimeInterval(-0 * 60) as NSDate?
+                steveMessage4.friend = steve
+                steveMessage4.text = "Yes, yes"
+                steveMessage4.isSender = true
+//            }
             
-            let steveMessage2 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            steveMessage2.date = Date().addingTimeInterval(-2 * 60) as NSDate?
-            steveMessage2.friend = steve
-            steveMessage2.text = "Apple creats great products for the world"
-            
-            let steveMessage3 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            steveMessage3.date = Date().addingTimeInterval(-1 * 60) as NSDate?
-            steveMessage3.friend = steve
-            steveMessage3.text = "Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world, Apple creats great products for the world,  Apple creats great products for the world"
             
             let donald = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             donald.name = "Donald Trump"
@@ -56,6 +69,7 @@ extension FriendListController {
             donaldMessage1.date = Date().addingTimeInterval(-5 * 60) as NSDate?
             donaldMessage1.friend = donald
             donaldMessage1.text = "You are fired!"
+            donaldMessage1.isSender = false
             
             let gandhi = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             gandhi.name = "Mahatma Gandhi"
@@ -65,6 +79,7 @@ extension FriendListController {
             gandhiMessage1.date = Date().addingTimeInterval(-60 * 55 * 60) as NSDate?
             gandhiMessage1.friend = gandhi
             gandhiMessage1.text = "I love peace!"
+            gandhiMessage1.isSender = false
             
             let hillary = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             hillary.name = "Hillary Clinton"
@@ -74,6 +89,7 @@ extension FriendListController {
             hillaryMessage1.date = Date().addingTimeInterval(-60 * 5555 * 60) as NSDate?
             hillaryMessage1.friend = hillary
             hillaryMessage1.text = "Please vote for me"
+            hillaryMessage1.isSender = false
             // save the objectsc
             do {
                 try(context.save())
