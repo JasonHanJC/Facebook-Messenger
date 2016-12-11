@@ -34,7 +34,7 @@ extension FriendListController {
             steve.name = "Steve Jobs"
             steve.profileImageName = "steve_profile"
             
-//            for _ in 1...1000 {
+            for _ in 1...5 {
                 let steveMessage1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
                 steveMessage1.date = Date().addingTimeInterval(-3 * 60) as NSDate?
                 steveMessage1.friend = steve
@@ -58,7 +58,7 @@ extension FriendListController {
                 steveMessage4.friend = steve
                 steveMessage4.text = "Yes, yes"
                 steveMessage4.isSender = true
-//            }
+            }
             
             
             let donald = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend

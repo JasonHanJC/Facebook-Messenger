@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageCell: BaseCell {
+class FriendListCell: BaseCell {
     
     override var isHighlighted: Bool {
         didSet {

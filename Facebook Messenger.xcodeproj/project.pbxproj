@@ -13,13 +13,14 @@
 		9635BE8A1DF8B36E00361B03 /* Facebook_Messenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE881DF8B36E00361B03 /* Facebook_Messenger.xcdatamodeld */; };
 		9635BE8C1DF8B36E00361B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9635BE8B1DF8B36E00361B03 /* Assets.xcassets */; };
 		9635BE8F1DF8B36E00361B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9635BE8D1DF8B36E00361B03 /* LaunchScreen.storyboard */; };
-		9635BE981DF8B8B100361B03 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE971DF8B8B100361B03 /* MessageCell.swift */; };
+		9635BE981DF8B8B100361B03 /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE971DF8B8B100361B03 /* FriendListCell.swift */; };
 		9635BE9B1DF8BB4F00361B03 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */; };
 		9635BE9E1DF8EFB000361B03 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BE9D1DF8EFB000361B03 /* Extension.swift */; };
 		9635BEA31DF9116300361B03 /* FriendListControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BEA21DF9116300361B03 /* FriendListControllerHelper.swift */; };
 		9635BEA61DF9389000361B03 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635BEA51DF9389000361B03 /* ChatLogController.swift */; };
 		9682D8421DF9F18800EE010E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D8411DF9F18800EE010E /* CustomTabBarController.swift */; };
-		9682D8441DFA63BA00EE010E /* MessageInputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D8431DFA63BA00EE010E /* MessageInputsView.swift */; };
+		9682D8441DFA63BA00EE010E /* MessageInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D8431DFA63BA00EE010E /* MessageInputs.swift */; };
+		96A890041DFB342200E07763 /* ChatLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A890031DFB342200E07763 /* ChatLogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,13 +33,14 @@
 		9635BE8B1DF8B36E00361B03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9635BE8E1DF8B36E00361B03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9635BE901DF8B36E00361B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9635BE971DF8B8B100361B03 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		9635BE971DF8B8B100361B03 /* FriendListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
 		9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		9635BE9D1DF8EFB000361B03 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9635BEA21DF9116300361B03 /* FriendListControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListControllerHelper.swift; sourceTree = "<group>"; };
 		9635BEA51DF9389000361B03 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		9682D8411DF9F18800EE010E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		9682D8431DFA63BA00EE010E /* MessageInputsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInputsView.swift; sourceTree = "<group>"; };
+		9682D8431DFA63BA00EE010E /* MessageInputs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInputs.swift; sourceTree = "<group>"; };
+		96A890031DFB342200E07763 /* ChatLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogCell.swift; sourceTree = "<group>"; };
 		F2834017C6E45F310598F98B /* Pods-Facebook Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Facebook Messenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Facebook Messenger/Pods-Facebook Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,9 +110,10 @@
 		9635BE961DF8B87900361B03 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9682D8431DFA63BA00EE010E /* MessageInputsView.swift */,
-				9635BE971DF8B8B100361B03 /* MessageCell.swift */,
+				9682D8431DFA63BA00EE010E /* MessageInputs.swift */,
+				9635BE971DF8B8B100361B03 /* FriendListCell.swift */,
 				9635BE9A1DF8BB4F00361B03 /* BaseCell.swift */,
+				96A890031DFB342200E07763 /* ChatLogCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -265,13 +268,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9635BEA61DF9389000361B03 /* ChatLogController.swift in Sources */,
-				9682D8441DFA63BA00EE010E /* MessageInputsView.swift in Sources */,
+				9682D8441DFA63BA00EE010E /* MessageInputs.swift in Sources */,
 				9635BE841DF8B36E00361B03 /* FriendListController.swift in Sources */,
 				9635BE8A1DF8B36E00361B03 /* Facebook_Messenger.xcdatamodeld in Sources */,
 				9635BE821DF8B36E00361B03 /* AppDelegate.swift in Sources */,
 				9635BE9E1DF8EFB000361B03 /* Extension.swift in Sources */,
 				9635BE9B1DF8BB4F00361B03 /* BaseCell.swift in Sources */,
-				9635BE981DF8B8B100361B03 /* MessageCell.swift in Sources */,
+				96A890041DFB342200E07763 /* ChatLogCell.swift in Sources */,
+				9635BE981DF8B8B100361B03 /* FriendListCell.swift in Sources */,
 				9635BEA31DF9116300361B03 /* FriendListControllerHelper.swift in Sources */,
 				9682D8421DF9F18800EE010E /* CustomTabBarController.swift in Sources */,
 			);
